@@ -44,15 +44,6 @@ def plusMoney(value):
     
 #List of Cards
 
-duchy = Card(
-    name = 'duchy',
-    cardType = 'Victory',
-    effect = None,
-    startingNumber = 8,
-    cost = 5
-)
-
-
 copper = Card(
     name = 'copper',
     cardType = 'Treasure',
@@ -62,4 +53,49 @@ copper = Card(
     startingNumber = 70,
     cost = 0
 )
-        
+      
+silver = Card(
+    name = 'silver',
+    cardType = 'Treasure',
+    effect = [
+        (plusMoney, 2)
+    ],
+    startingNumber = 40,
+    cost = 3
+)
+
+gold = Card(
+    name = 'gold', 
+    cardType = 'Treasure',
+    effect = [
+        (plusMoney, 3)
+    ],
+    startingNumber = 30,
+    cost = 6
+)
+
+estate = Card(
+    name = 'estate', 
+    cardType = 'Victory', 
+    effect = [],
+    startingNumber = 8, 
+    cost = 2
+)
+
+
+duchy = Card(
+    name = 'duchy',
+    cardType = 'Victory',
+    effect = [],
+    startingNumber = 8,
+    cost = 5
+)
+
+province = Card(
+    name = 'province', 
+    cardType = 'Victory', 
+    effect = [],
+    startingNumber = 8,
+    cost = 8
+)
+  
