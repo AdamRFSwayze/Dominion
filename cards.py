@@ -31,10 +31,14 @@ def createCardDictionary(cardList):
 
 def generateCardId(cardName):
     if cardName in cardsInUse.values():
-        cardsInUse[str(int(max(cardsInUse.keys())) + 1)] = cardName
+        cardID = str(int(max(cardsInUse.keys())) + 1)
+        cardsInUse[cardID] = cardName
     else: 
-        cardsInUse[str(cardDictionary[cardName]) + '01'] = cardName 
-        
+        cardID = str(cardDictionary[cardName]) + '01'
+        cardsInUse[cardID] = cardName 
+    return cardID
+
+
 
 def plusMoney(value):
     BoardState.turnState.plusMoney(value)
