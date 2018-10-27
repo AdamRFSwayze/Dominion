@@ -1,4 +1,5 @@
 import random
+from uuid import uuid4
 
 
 class BoardState():
@@ -21,11 +22,6 @@ class BoardState():
         
         self.decks = {player : []  for player in self.players}
         
-        self.cardDictionary = {}
-        temp = 100
-        for card in self.cardList:
-            self.cardDictionary[card] = temp
-            temp += 1
         
         for player in self.players:
             for card in self.startingCards:
@@ -39,23 +35,13 @@ class BoardState():
                 self.decks[player].remove(card)
         
     def moveCard(self, cardID, player, cardLocation, cardDestination):
-        if cardLocation == 'decks':
-            if cardDestination == 'trash':
-                self.decks[player].remove(cardID)
-                self.trash += [cardID]
+        pass
         
     
         
-         
- 
-    
     def generateCardId(self, cardName):
-        if cardName in self.cardsInUse.values():
-            cardID = str(int(max(self.cardsInUse.keys())) + 1)
-            self.cardsInUse[cardID] = cardName
-        else: 
-            cardID = str(self.cardDictionary[cardName]) + '01'
-            self.cardsInUse[cardID] = cardName 
+        cardID = uuid4()
+        self.cardsInUse[cardID] = cardName
         return cardID
     
     
