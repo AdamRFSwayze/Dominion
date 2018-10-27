@@ -15,12 +15,14 @@ class BoardState():
         #self.cardsInUse = cardsInUse
         self.cardList = cardList
                
-       
+        # dictionary of card IDs
         self.cardsInUse = {}
-       
-
+       #dictionary of card Position IDs
+        self.positionIDs = {}
         
+        #initiating 
         self.decks = {player : []  for player in self.players}
+        
         
         
         for player in self.players:
@@ -30,11 +32,12 @@ class BoardState():
         self.discardPiles = {player : [] for player in players}
         self.hands = {player : random.sample(self.decks[player], 5) for player in players}
         
+        
         for player in self.players:
             for card in self.hands[player]:
                 self.decks[player].remove(card)
         
-    def moveCard(self, cardID, player, cardLocation, cardDestination):
+    def moveCard(self ):
         pass
         
     
@@ -44,5 +47,14 @@ class BoardState():
         self.cardsInUse[cardID] = cardName
         return cardID
     
+    def generatePositionID(self, cardID, player, pile, position):
+        positionID = uuid()
+        self.positionIDs[positionID] = (cardID, player, pile, position)
+        return positionID
+    
+    
+    
+
+
     
 

@@ -20,26 +20,6 @@ cardList = [
 ]
 
 
-def createCardDictionary(cardList):
-    cardDictionary = {}
-    temp = 100
-    for card in cardList:
-        cardDictionary[card] = temp
-        temp += 1
-    return cardDictionary
-
-
-def generateCardId(cardName):
-    if cardName in cardsInUse.values():
-        cardID = str(int(max(cardsInUse.keys())) + 1)
-        cardsInUse[cardID] = cardName
-    else: 
-        cardID = str(cardDictionary[cardName]) + '01'
-        cardsInUse[cardID] = cardName 
-    return cardID
-
-
-
 def plusMoney(value):
     BoardState.turnState.plusMoney(value)
     
